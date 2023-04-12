@@ -1,85 +1,59 @@
-* {
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-weight: normal;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* max-width: 100%; */
+}
+
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    max-width: 100%;
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
 }
 
-.container {
-    width: 100%;
-    height: 100vh;
-    background-color: blanchedalmond;
-    display: flex;
-    align-items: center;
+.calculator-grid {
+    display: grid;
+    align-content: center;
     justify-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
-.calculator {
-    width: 30rem;
-    margin-bottom: 15px;
-    padding: 10px 5px;
-    border-radius: 10px;
-    background-color: rgb(23, 23, 38);
+.calculator-grid .output {
+    grid-column: 1 / -1;
+    background: rgba(0, 0, 0, .75);
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-form {
-    /* border: 1px solid yellow; */
-    width: 29rem;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    color: rgba(255, 255, 255, .75);
     flex-direction: column;
-    gap: 5px;
-}
-
-form .display input {
-    width: 405px;
-    height: 60px;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    padding: 5px;
-    font-size: 38px;
-    text-align: right;
-    margin: 20px 15px;
-    flex: 1;
-    border: 1px solid yellow;
-}
-
-.buttons > div {
-    background-color: green;
-    display: flex;
-    align-items: space-around;
     justify-content: space-around;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
-.buttons input {
-    width: 100px;
-    height: 60px;
-    border-radius: 5px;
-    font-size: large;
-    font-weight: bold;
+.calculator-grid .output .previous-operand {
+    font-size: 1rem;
+}
+
+.calculator-grid .output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
+
+.calculator-grid > button  {
+    border: 1px solid white;
+    font-size: 1.5rem;
     cursor: pointer;
-    transition: .2s ease-in;
+    outline: none;
+    background: rgba(255, 255, 255, .75);
 }
 
-form input.equals {
-    width: 205px;
-    background-color: rgb(236, 54, 54);
+.calculator-grid > button:hover {
+    background: rgba(255, 255, 255, .9);
 }
 
-form input.equals:hover {
-    background-color: red;
-}
-
-.buttons input:hover {
-    background-color: gray;
-}
-
-.buttons input:active {
-    background-color: tomato;
+.span-2 {
+    grid-column: span 2;
 }
